@@ -7,8 +7,33 @@ const HomePage = () => {
   const navigate = useNavigate();
   const socket = useSocket();
 
+  const generateId = () =>{
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    let result = '';
+  
+    for (let i = 0; i < 2; i++) {
+      const randomIndex = Math.floor(Math.random() * letters.length);
+      result += letters[randomIndex];
+    }
+  
+    for (let i = 0; i < 2; i++) {
+      const randomIndex = Math.floor(Math.random() * numbers.length);
+      result += numbers[randomIndex];
+    }
+  
+    const characters = letters + numbers;
+    for (let i = 0; i < 2; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      result += characters[randomIndex];
+    }
+  
+    result = result.split('').sort(() => 0.5 - Math.random()).join('');  
+    return result;
+  }
+
   const onShareCode = useCallback(() => {
-    const id = uuidv4();
+    const id = generateId();
     navigate(`/share/${id}`);
   }, [navigate]);
 

@@ -24,8 +24,9 @@ const SharePage = () => {
     };
   }, [socket, id]);
 
-  const handleCodeChange = (e) => {
-    const newCode = e.target.value;
+  const handleCodeChange = (newCode) => {
+    // const newCode = e.target.value;
+    console.log( "new code is:: ", newCode)
     setCode(newCode);
 
     socket.emit("code-change", { roomId: id, code: newCode });
