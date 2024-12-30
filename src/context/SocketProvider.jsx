@@ -16,8 +16,20 @@ export const SocketProvider = ({ children }) => {
     //     // io("wss://crocus-clover-brake.glitch.me/",[]));
     //     io("http://localhost:5000/",[]));
 
+    // const socket = useMemo(() => 
+    //     io("http://localhost:5000", {
+    //         reconnection: true,
+    //         reconnectionAttempts: 5,
+    //         reconnectionDelay: 1000
+    //     })
+    // , []);
+
+    //  const socket = useMemo(() => 
+    //     io("wss://accessible-fog-neem.glitch.me/")
+    // , []);
+    
     const socket = useMemo(() => 
-        io("http://localhost:5000", {
+        io("wss://crocus-clover-brake.glitch.me/", {
             reconnection: true,
             reconnectionAttempts: 5,
             reconnectionDelay: 1000
